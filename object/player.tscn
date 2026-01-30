@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4tiocdxnssuc"]
+
+[ext_resource type="Script" uid="uid://bajloardwmsle" path="res://scripts/player.gd" id="1_5amv0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5amv0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_srnac"]
+material = SubResource("StandardMaterial3D_5amv0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_5amv0"]
+size = Vector3(0.5, 0.5, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5amv0"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_5amv0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_srnac")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5650859)
+mesh = SubResource("BoxMesh_5amv0")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5amv0")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.087155804, 0.9961947, 0, -0.9961947, 0.087155804, 0, 18, 2)
+current = true
+fov = 90.0

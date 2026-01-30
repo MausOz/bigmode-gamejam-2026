@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjeqihuhr70aa"]
+
+[ext_resource type="Script" uid="uid://bt88vyxlya5uy" path="res://scripts/menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="MenuUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_l6cm7")
+
+[node name="GameTitle" type="RichTextLabel" parent="MenuUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25800002
+anchor_right = 1.0
+anchor_bottom = 0.294
+offset_top = 0.31599426
+offset_bottom = -0.011993408
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Title"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="MenuUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuUI/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MenuUI/BoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartBtn" type="Button" parent="MenuUI/BoxContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="SettingBtn" type="Button" parent="MenuUI/BoxContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Setting
+"
+
+[connection signal="pressed" from="MenuUI/BoxContainer/VBoxContainer/ButtonContainer/StartBtn" to="MenuUI" method="_on_start_btn_pressed"]
